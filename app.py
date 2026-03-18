@@ -10,7 +10,7 @@ st.title('Análisis de Sentimiento')
 # Lottie animation
 lottie_html = """
 <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.9.3/dist/dotlottie-wc.js" type="module"></script>
-<dotlottie-wc src="https://lottie.host/3aa56635-c331-4118-8f05-96256fe71008/5UZl7vAMBu.lottie" style="width: 300px;height: 300px" autoplay loop></dotlottie-wc>
+<dotlottie-wc src="https://lottie.host/3d7cd9d4-c409-4dcc-8598-2605ccdfadea/h4oQM8hK4O.lottie" style="width: 300px;height: 300px" autoplay loop></dotlottie-wc>
 """
 components.html(lottie_html, height=350)
 
@@ -48,3 +48,8 @@ with st.expander('Analizar texto'):
         else:
             st.write( 'Es un sentimiento Neutral 😐')
 
+lottie_html = """
+<script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.9.3/dist/dotlottie-wc.js" type="module"></script>
+<dotlottie-wc src="https://lottie.host/3aa56635-c331-4118-8f05-96256fe71008/5UZl7vAMBu.lottie" style="width: 300px;height: 300px" autoplay loop></dotlottie-wc>
+"""
+components.html(lottie_html, height=350)
