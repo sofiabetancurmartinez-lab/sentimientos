@@ -3,8 +3,17 @@ import pandas as pd
 import streamlit as st
 from PIL import Image
 from deep_translator import GoogleTranslator
+import streamlit.components.v1 as components
 
 st.title('Análisis de Sentimiento')
+
+# Lottie animation
+lottie_html = """
+<script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.9.3/dist/dotlottie-wc.js" type="module"></script>
+<dotlottie-wc src="https://lottie.host/3d7cd9d4-c409-4dcc-8598-2605ccdfadea/h4oQM8hK4O.lottie" style="width: 300px;height: 300px" autoplay loop></dotlottie-wc>
+"""
+components.html(lottie_html, height=350)
+
 image = Image.open('emoticones.jpg')
 st.image(image)
 st.subheader("Por favor escribe en el campo de texto la frase que deseas analizar")
@@ -38,3 +47,4 @@ with st.expander('Analizar texto'):
             st.write( 'Es un sentimiento Negativo 😔')
         else:
             st.write( 'Es un sentimiento Neutral 😐')
+
