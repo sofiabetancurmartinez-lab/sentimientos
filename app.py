@@ -2,7 +2,7 @@ from textblob import TextBlob
 import pandas as pd
 import streamlit as st
 from PIL import Image
-from googletrans import Translator
+from deep_translator import GoogleTranslator
 from streamlit_lottie import st_lottie
 import json
 
@@ -12,7 +12,7 @@ image = Image.open('emoticones.jpg')
 st.image(image)
 st.subheader("Por favor escribe en el campo de texto la frase que deseas analizar")
 
-translator = Translator()
+translator = GoogleTranslator(source='es', target='en')
 
 with st.sidebar:
                st.subheader("Polaridad y Subjetividad")
@@ -30,24 +30,23 @@ with st.expander('Analizar texto'):
     text = st.text_input('Escribe por favor: ')
     if text:
 
-        translation = translator.translate(text, src="es", dest="en")
-        trans_text = translation.text
+        trans_text = translator.translate(text)
         blob = TextBlob(trans_text)
         st.write('Polarity: ', round(blob.sentiment.polarity,2))
         st.write('Subjectivity: ', round(blob.sentiment.subjectivity,2))
         x=round(blob.sentiment.polarity,2)
         if x > 0.0 and x <=1.0:
-            st.write( 'Es un sentimiento Positivo 😊')
-            with open ("Cute Doggie.json") as source:
+            st.write( 'Es un sentimiento Positivo')
+            with open ("HAPPY.json") as source:
                  animation=json.load(source)
             st.lottie(animation,width=350)
         elif x >=-1 and x < 0:
-            st.write( 'Es un sentimiento Negativo 😔')
-            with open ("Sad Emoji.json") as source:
+            st.write( 'Es un sentimiento Negativo')
+            with open ("SAD.json") as source:
                  animation=json.load(source)
             st.lottie(animation,width=350)
         else:
-            st.write( 'Es un sentimiento Neutral 😐')
-            with open ("Bad Cat.json") as source:
+            st.write( 'Es un sentimiento Neutral')
+            with open ("Neutral.json") as source:
                  animation=json.load(source)
             st.lottie(animation,width=350)
